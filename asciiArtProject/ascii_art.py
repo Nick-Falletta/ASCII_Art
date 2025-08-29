@@ -89,6 +89,7 @@ def fs_dither(grays: List[List[float]], levels: List[float]) -> List[List[int]]:
     w = len(grays[0]) if h > 0 else 0
     idx_grid: List[List[int]] = [[0] * w for _ in range(h)]
 
+    # Dithering Loop
     for y in range(h):
         for x in range(w):
             old = grays[y][x]
@@ -96,7 +97,7 @@ def fs_dither(grays: List[List[float]], levels: List[float]) -> List[List[int]]:
             idx_grid[y][x] = idx
             err = old - new
 
-            # Distribute error to neighbors (check bounds carefully)
+            # Distribute error to neighbors
             if x + 1 < w:
                 grays[y][x + 1] += err * (7 / 16)
             if y + 1 < h:
