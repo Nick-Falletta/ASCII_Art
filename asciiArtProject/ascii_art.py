@@ -5,7 +5,8 @@ from typing import List, Tuple
 from PIL import Image
 
 # Character Set
-# These presets map brightness to characters. Darker pixels use 'denser' chars.
+# These presets map brightness to characters
+# Darker pixels -> Darker characters
 CHARSETS = {
     "standard": "@%#*+=-:. ",
     "classic": "$@B%8&WM#*oahkbdpqwmZ0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!l;:,\"^`'. ",
@@ -16,7 +17,7 @@ CHARSETS = {
 
 # CLI parsing
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Render images as ASCII art (no APIs).")
+    parser = argparse.ArgumentParser(description="Render images as ASCII art.")
     parser.add_argument("input", help="Path to image file")
     parser.add_argument("--width", type=int, default=100,
                         help="Output character width (default: 100)")
